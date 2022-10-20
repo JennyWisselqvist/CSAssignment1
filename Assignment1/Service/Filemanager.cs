@@ -18,9 +18,7 @@
             }
             catch
             {
-
             }
-
         }
         public string Read()
         {

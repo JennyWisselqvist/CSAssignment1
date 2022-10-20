@@ -10,14 +10,12 @@ namespace Assignment.Interface
     internal class Phonebook : IPhonebook
     {
         private List<Contact> Contacts { get; set; } = new List<Contact>();
-
         private Filemanager filemanager = new Filemanager();
-
         public Phonebook()
         {
-            Contacts = JsonConvert.DeserializeObject<List<Contact>>(filemanager.Read());
+            Contacts = JsonConvert.DeserializeObject<List<Contact>>(filemanager.Read()); //läser från json filen
         }
-        public void AddContact(Contact contact)
+        public void AddContact(Contact contact) //lägger till en kontakt och sprar det till en json fil
         {
             Contacts.Add(contact);
             filemanager.Save(JsonConvert.SerializeObject(Contacts));
